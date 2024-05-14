@@ -11,6 +11,7 @@
         <thead>
             <tr>
                 <th>Name</th>
+                <th>Preview</th>
                 <th>Actions</th>
             </tr>
         </thead>
@@ -19,7 +20,12 @@
                 <tr>
                     <td>@f.OriginalName</td>
                     <td>
+                        <img src="@Url.Page("/Index","Thumbnail", new {filename=f.StoredFileId })" />
+                    </td>
+                    <td>
                         <a class="btn btn-sm btn-primary" asp-page-handler="download" asp-route-filename="@f.OriginalName">Download</a>
+                        <a class="btn btn-sm btn-secondary" asp-page-handler="thumbnail" asp-route-filename="@f.StoredFileId">Thumbnail</a>
+                        <a class="btn btn-sm btn-secondary" asp-page-handler="thumbnail" asp-route-filename="@f.StoredFileId" asp-route-type="1">Miniature</a>
                     </td>
                 </tr>
             }
